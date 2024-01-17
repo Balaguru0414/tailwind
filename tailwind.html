@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    ::-webkit-scrollbar{
+        max-width: 15px;
+    }
+    ::-webkit-scrollbar-track{
+        background-color: #222;
+    }
+    /* ::-webkit-scrollbar-track:hover{
+        background-color: #333;
+    } */
+    ::-webkit-scrollbar-thumb{
+        background: #444;
+        background: linear-gradient(transparent,green);
+    }
+
+    ::-webkit-scrollbar-thumb:hover{
+        background: #555;
+        background: linear-gradient(red,transparent);
+    }
+
+    .googles{
+      animation: googles .4s linear infinite;
+    }
+
+    @keyframes googles{
+      0%{
+        rotate: 0;
+        border-color: blue;
+        border-top-color: transparent;
+      }
+      33%{
+        border-top-color: transparent;
+      }
+      
+      66%{
+        border-top-color: transparent;
+      }
+      100%{
+        border-color: green;
+        border-top-color: transparent;
+        rotate: 360deg;
+      }
+    }
+  </style>
+
+  <!-- CUSTOM ANIMATION IN TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          },
+          keyframes: {
+            google: {
+              '0%': { transform: 'translateY(-15px)' },
+              '100%': { transform: 'translateY(5px)' },
+            }
+          },
+          animation: {
+            google: 'google 1s ease-in-out infinite alternate',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <style type="text/tailwindcss">    
+    .google-loading {
+      @apply w-5 h-5 shadow shadow-[#ffffff90] rounded-full
+    }
+   
+    .loading-text{
+      @apply  text-5xl animate-google font-bold 
+    }
+
+    .youtube-skel{
+      @apply w-96 h-64 flex flex-col justify-between 
+    }
+  </style>
+
+</head>
+
+<body class="bg-black cursor-[url(images/cursor.png),auto] ">
+
+  <!-- HEADING -->
+  <h1 class="text-5xl py-5 text-white text-center shadow-lg shadow-white font-bold ">
+    Hello world!
+  </h1>
+
+  <!-- BALA GURU -->
+  <div class="w-full justify-center mx-auto space-x-2 flex mt-10">
+    <h1 style="animation-delay: -0.25s;" class="loading-text text-blue-600">B</h1>
+    <h1 style="animation-delay: -0.5s;" class="loading-text text-red-600">A</h1>
+    <h1 style="animation-delay: -0.75s;" class="loading-text text-yellow-600">L</h1>
+    <h1 style="animation-delay: -1s;" class="loading-text text-green-600">A</h1>
+
+    <h1 style="animation-delay: -1s;" class="loading-text text-blue-600">G</h1>
+    <h1 style="animation-delay: -0.75s;" class="loading-text text-red-600">U</h1>
+    <h1 style="animation-delay: -0.5s;" class="loading-text  text-yellow-600">R</h1>
+    <h1 style="animation-delay: -0.25s;" class="loading-text text-green-600">U</h1>
+  </div>
+
+  <!-- GOOGLE LOADING -->
+  <div class="w-full justify-center mx-auto space-x-2 flex mt-10">
+    <div style="animation-delay: -0.25s;" class="google-loading animate-google bg-blue-600"></div>
+    <div style="animation-delay: -0.5s;" class="google-loading animate-google bg-red-600 "></div>
+    <div style="animation-delay: -0.75s;" class="google-loading animate-google bg-yellow-600 "></div>
+    <div style="animation-delay: -1s;" class="google-loading animate-google bg-green-600 "></div>
+  </div>
+
+  <!-- SPINNER -->
+  <div class="googles w-10 h-10 rounded-full border border-4 border-t-transparent  mt-10 mx-auto"></div>
+  <div class="w-10 h-10 rounded-full border border-4 animate-spin border-t-transparent mt-10 mx-auto"></div>
+
+  <!-- SKELITEN LOADING-->
+  <div class="border mt-10 border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+    <div class="animate-pulse flex space-x-4">
+      <div class="rounded-full bg-slate-700 h-10 w-10"></div>
+      <div class="flex-1 space-y-6 py-1">
+        <div class="h-2 bg-slate-700 rounded"></div>
+        <div class="space-y-3">
+          <div class="grid grid-cols-3 gap-4">
+            <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+            <div class="h-2 bg-slate-700 rounded col-span-2"></div>
+          </div>
+          <div class="h-2 bg-slate-700 rounded"></div>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="h-2 rounded bg-slate-700 col-span-2"></div>
+            <div class="h-2 rounded bg-slate-700 col-span-1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YouTube Skelitan -->
+  <div class="w-full flex flex-wrap max-md:space-y-5 justify-around mt-10 animate-pulse">
+    <div class="youtube-skel">
+      <div class="w-full h-48 bg-slate-800 rounded-md"></div>
+      <div class="flex justify-between">
+        <div class="w-10 h-10 rounded-full bg-slate-800"></div>
+        <div class="w-[85%] h-14 flex flex-col justify-around">
+          <div class="w-full h-2 rounded-lg bg-slate-800"></div>
+          <div class="w-full h-2 rounded-lg bg-slate-800"></div>
+          <div class="w-[30%] h-2 rounded-lg bg-slate-800"></div>
+        </div>
+      </div>
+    </div>
+    <div class="youtube-skel">
+      <div class="w-full h-48 bg-slate-800 rounded-md"></div>
+      <div class="flex justify-between">
+        <div class="w-10 h-10 rounded-full bg-slate-800"></div>
+        <div class="w-[85%] h-14 flex flex-col justify-around">
+          <div class="w-full h-2 rounded-lg bg-slate-800"></div>
+          <div class="w-full h-2 rounded-lg bg-slate-800"></div>
+          <div class="w-[30%] h-2 rounded-lg bg-slate-800"></div>
+        </div>
+      </div>
+    </div>
+    <div class="youtube-skel">
+      <div class="w-full h-48 bg-slate-800 rounded-md"></div>
+      <div class="flex justify-between">
+        <div class="w-10 h-10 rounded-full bg-slate-800"></div>
+        <div class="w-[85%] h-14 flex flex-col justify-around">
+          <div class="w-full h-2 rounded-lg bg-slate-800"></div>
+          <div class="w-full h-2 rounded-lg bg-slate-800"></div>
+          <div class="w-[30%] h-2 rounded-lg bg-slate-800"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="p-11 text-2xl text-white text-justify leading-10">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae impedit nostrum voluptas unde eaque. Praesentium fuga dolores, accusantium debitis eveniet laborum nulla laudantium cumque maxime! Et ex, aperiam unde ducimus veritatis amet. Illo voluptatem sapiente facere reprehenderit voluptatum porro, dolorem amet. Nemo distinctio totam animi laborum, quos id voluptas tempora harum natus magni aut ipsam asperiores, autem cumque nobis pariatur quis aspernatur dolorum sapiente. Quaerat deserunt, velit magni ipsa earum non itaque doloremque possimus rem? At, laboriosam officia eveniet veniam a odio dolorum. Rem temporibus dolore unde iste sunt sint earum velit consequatur beatae est odio quibusdam quidem ea, molestiae, suscipit, minus corporis ipsa ullam necessitatibus obcaecati illum. Sed quae, aliquid eveniet, praesentium exercitationem ex veritatis blanditiis optio amet doloribus deleniti maxime ipsam debitis beatae repellat, quod consequatur! Earum autem hic blanditiis quisquam! Commodi fuga dicta, ab molestias obcaecati est ut perspiciatis explicabo voluptas voluptatum. In, deserunt quod nemo odio expedita maiores pariatur minima porro? Labore, quos omnis quis, nobis dolorum maxime, dignissimos tenetur velit voluptatem molestiae modi esse cum illo culpa. Quod similique, vel nesciunt nisi consequatur officia! Ad ipsam adipisci placeat quia aliquam deserunt ratione at voluptate nam molestiae dolorum officiis natus omnis reprehenderit culpa consequatur sit facilis a dolorem eos debitis, nisi cumque aliquid veritatis. Ad architecto esse molestias expedita minus rem libero labore voluptas hic nulla eum sunt tempora vel, velit nisi commodi facilis? Expedita, et. Esse exercitationem impedit vitae, eos non accusantium eligendi adipisci autem libero ipsam repellat. Est at obcaecati doloremque omnis, fuga, animi ipsam, aperiam ipsum eaque eos itaque temporibus voluptas ex alias odio atque vel rerum nesciunt. Eligendi laborum magnam cum iusto reiciendis, iste labore eos unde praesentium quam, omnis molestias maxime voluptates harum fugiat qui numquam culpa. Autem, accusamus magnam optio, fugiat sed quasi ab, cupiditate eius quisquam cumque asperiores? Dolorem voluptates culpa consequuntur libero. Doloribus sunt iste numquam, harum iusto debitis corrupti asperiores iure, itaque ipsum eveniet reprehenderit nam aperiam fugiat sit facilis fugit eos ex. Error sunt quasi cumque laborum vel nesciunt suscipit id natus mollitia corrupti at consectetur maiores minima excepturi quisquam voluptates alias saepe, odio temporibus earum labore perspiciatis provident corporis dicta? Odio architecto, magni vitae sit debitis ipsam eum. Voluptatem quasi vero in. Modi laborum molestias commodi quo architecto recusandae dicta et in maxime odio consectetur, sed facere provident. Aperiam modi blanditiis quisquam quasi praesentium dolor excepturi vel iste et illum ab alias illo facere reprehenderit dolorem repellat numquam dolore, quaerat ea temporibus ipsum molestias similique ratione. Dolorum molestiae eius modi distinctio sint ea obcaecati, a vel repellendus, ab dicta tempore aliquid non. Animi magni inventore id debitis adipisci ipsa ipsum exercitationem vitae repellat sed beatae possimus, dolorum fugiat, doloremque quod magnam rem accusamus at quas illo incidunt itaque. Impedit veniam ex quidem distinctio consequuntur, quo, sint aperiam nostrum iste accusantium amet. Voluptatem dolorum ex natus expedita sint sed nulla, qui eum autem quasi placeat sapiente, vel tenetur commodi. Praesentium repudiandae at perspiciatis velit dolore consequatur dicta? Adipisci similique iusto excepturi, culpa doloribus laboriosam neque corporis odio odit consequatur dolorem labore quasi necessitatibus, magni nisi deserunt a doloremque voluptatibus impedit? Autem exercitationem corrupti pariatur at laudantium neque labore et expedita, sit, eaque alias ea dolorum beatae. Veniam, sint, aut a recusandae quasi blanditiis nostrum debitis eos reprehenderit necessitatibus eligendi nisi eaque ad fuga earum nihil. Beatae nesciunt dicta quis adipisci? Commodi consequuntur deserunt excepturi mollitia unde in alias aliquam nobis veritatis a sit ut hic, quia ullam, consequatur laboriosam natus ipsum est, non beatae magni! Repellat, minus quasi. Qui necessitatibus repellendus eaque corrupti quos cum harum odit maxime provident iure quibusdam cupiditate minus, tempore quaerat porro sapiente quam, earum architecto! Assumenda consequatur quos ipsum officiis repellat aut sunt aspernatur illo ullam numquam, facilis placeat, architecto nihil pariatur nulla! Aut autem quisquam inventore modi dolores aliquam. Cupiditate amet ab soluta sit, mollitia, quod officia suscipit neque accusantium, itaque consequatur. Officia, nisi. Natus rem iure officia voluptas earum dolorem repudiandae perspiciatis inventore, eos impedit ex commodi facilis qui quas consequatur expedita eius, vero quisquam aliquid enim fugit tempora velit. Veniam sequi illo in hic vel. Nesciunt enim eos animi natus iure iste maiores perferendis ad est labore, veritatis cupiditate, numquam earum doloremque quasi commodi odio voluptatum. Amet reiciendis quisquam quidem, sapiente at necessitatibus ipsam sit quae mollitia, commodi sequi, error itaque. Quae excepturi eaque sed. Nemo ab rerum beatae quod perspiciatis accusamus cum laborum quam, consectetur reprehenderit minus nesciunt qui sint temporibus quibusdam! Obcaecati id maiores repellat dolor voluptate ipsum provident dignissimos, facere dolorem, quis vitae, assumenda eligendi! Ea non nisi reprehenderit magnam fuga consequatur voluptatibus iure? Dolor illo qui quod error libero reiciendis earum, harum expedita sapiente explicabo sed nobis quisquam et? Iure ullam, possimus autem consectetur maxime ipsa. Deserunt ex possimus sunt dignissimos, animi veritatis nostrum nisi commodi laboriosam totam ipsum dolorum a iure facilis doloremque vel voluptatibus nulla? Consequuntur quis voluptas deserunt odio est officiis provident id quidem vero eveniet at nisi, mollitia alias repellendus qui. Repellendus reiciendis sapiente ipsa amet, aliquid delectus numquam temporibus aspernatur voluptatem animi, recusandae labore quia dignissimos deleniti tempora eveniet asperiores esse dicta? Quia temporibus natus inventore rem doloribus voluptatibus eveniet nulla necessitatibus, nemo sunt eius quasi quibusdam possimus. Sint sequi, similique minima dolorum quas ullam necessitatibus natus nulla voluptate alias rerum corporis impedit. Architecto ut laborum, minima aliquam tempora praesentium odit quas suscipit neque provident, recusandae enim. Porro, cumque ad. Libero vero perspiciatis corrupti consequuntur aperiam repellendus fugiat modi earum, eius, adipisci soluta officiis, dolorum quis quas itaque magnam quam. Ea voluptatem porro quisquam nobis ex fuga nemo facere voluptate repellat. Sit, ipsum consequatur atque saepe aperiam magni quod nihil necessitatibus dolor consectetur odio autem cupiditate at tempore rem perspiciatis quos eum iure beatae tenetur incidunt distinctio commodi veniam. Ut sint mollitia consequuntur non dolorum amet. Aliquid esse rem harum itaque ab? Fugit facilis, vitae earum perferendis rem accusamus deserunt optio modi saepe fuga delectus officiis ducimus eveniet similique magni, animi ea culpa veniam minus sit corrupti quo harum magnam quisquam. Eius, nulla. Voluptas esse mollitia cumque ipsam.</p>
+
+
+</body>
+</html>
