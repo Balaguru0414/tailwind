@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="m-0 p-0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar - Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        .body{
+            @apply min-h-screen font-semibold bg-no-repeat bg-top bg-cover 
+            bg-[url(https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg)] 
+        }
+        .sidebar{
+            @apply hidden fixed top-0 right-0 flex-col z-[999] 
+            h-screen w-64 max-sm:w-full bg-[rgba(255,255,255,0.2)] 
+            backdrop-blur-[5px] shadow-[-10px_0_10px_rgba(0,0,0,0.1)]
+        }
+
+        .nav-links{
+            @apply h-full px-7 flex items-center hover:bg-[#f0f0f0]
+        }
+    </style>
+</head>
+<body class="body">
+   <nav class="bg-white shadow-[0_10px_10px_rgba(0,0,0,0.1)]">
+
+        <ul class="sidebar">
+            <li onclick=hideSidebar() class="h-12"><a class="nav-links" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li class="h-12"><a class="nav-links" href="#">Blog</a></li>
+            <li class="h-12"><a class="nav-links" href="#">Services</a></li>
+            <li class="h-12"><a class="nav-links" href="#">Contacts</a></li>
+            <li class="h-12"><a class="nav-links" href="#">About Us</a></li>
+            <li class="h-12"><a class="nav-links" href="#">Log In</a></li>
+        </ul>
+
+        <ul class="flex justify-end w-full">
+            <li class="h-12 mr-auto"><a class="nav-links" href="#">LOGO</a></li>
+            <li class="h-12 max-md:hidden"><a class="nav-links" href="#">Blog</a></li>
+            <li class="h-12 max-md:hidden"><a class="nav-links" href="#">Services</a></li>
+            <li class="h-12 max-md:hidden"><a class="nav-links" href="#">Contacts</a></li>
+            <li class="h-12 max-md:hidden"><a class="nav-links" href="#">About Us</a></li>
+            <li class="h-12 max-md:hidden"><a class="nav-links" href="#">Log In</a></li>
+            <li onclick=showSidebar() class="h-12 hidden max-md:block"><a class="nav-links" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+
+   </nav>
+   <script>
+       const sidebar = document.querySelector(".sidebar")
+        function showSidebar(){
+            sidebar.style.display = "flex"
+        }
+        function hideSidebar(){
+            sidebar.style.display = "none"
+        }
+   </script>
+   
+</body>
+</html>
